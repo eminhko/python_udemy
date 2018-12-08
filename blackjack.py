@@ -40,7 +40,7 @@ class Deck:
         s_card = self.deck.pop()
         return s_card
     
-    #To chech all cards in a deck
+    #To check all cards in a deck
     #def __str__(self):
     #    tot_card = ''
     #    for item in self.deck:
@@ -48,4 +48,21 @@ class Deck:
     #    return tot_card
 
 
-
+#If there is Ace in hand and value is greater than 21, count as 1 instead of 11
+class Hand():
+    
+    def __init__(self):
+        self.cards = []
+        self.value =0
+        self.aces =0
+        
+    def add_card(self,card):
+        self.cards.append(card)
+        self.value += values[card.rank]
+        if card.rank == 'Ace':
+            self.aces += 1
+        
+    def adjust_for_ace(self):
+        while self.value > 21 and self.aces:
+            self.value -= 10
+            self.aces -= 1
