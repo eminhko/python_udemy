@@ -40,8 +40,12 @@ class Deck:
         s_card = self.deck.pop()
         return s_card
     
-    def __str__(self):
-        tot_card = ''
-        for item in self.deck:
-            tot_card += '\n' + item.__str__()
-        return tot_card
+    #To chech all cards in a deck
+    #def __str__(self):
+    #    tot_card = ''
+    #    for item in self.deck:
+    #        tot_card += '\n' + item.__str__()
+    #    return tot_card
+
+
+
