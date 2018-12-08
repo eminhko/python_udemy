@@ -22,3 +22,26 @@ class Card:
     def __str__(self):
         
         return f"{self.rank} of {self.suit}"
+
+
+class Deck:
+    
+    def __init__(self):
+        
+        self.deck=[]
+        for suit in suits:
+            for rank in ranks:
+                self.deck.append(Card(suit,rank))
+            
+    def shuffle(self):
+        random.shuffle(self.deck)
+        
+    def deal(self):
+        s_card = self.deck.pop()
+        return s_card
+    
+    def __str__(self):
+        tot_card = ''
+        for item in self.deck:
+            tot_card += '\n' + item.__str__()
+        return tot_card
