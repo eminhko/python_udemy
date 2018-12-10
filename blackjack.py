@@ -79,3 +79,23 @@ class Chips:
     
     def lose_bet(self):
         self.total -= self.bet
+
+
+
+def take_bet(chip):
+    
+    while True:
+        try:
+            chip.bet = int(input('How much bet would you like to bet?=  '))
+        except ValueError:
+            print('Please enter an integer')
+        else:
+            if chip.bet > Chips.total:
+                print('You do not have enought chips')
+            else:
+                break
+         
+  def hit(deck,hand):
+    
+    hand.add_card(deck.deal())
+    hand.adjust_for_ace()
