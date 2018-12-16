@@ -154,3 +154,46 @@ def dealer_wins(player,dealer,chips):
     
 def push():
     print("It's a tie")
+
+
+
+# Game
+
+while True:
+    # Print an opening statement
+    print('Welcome to BlackJack!')
+    
+    # Shuffle deck
+    deck = Deck()
+    deck.shuffle()
+    
+    #Give two cards for each player and dealer
+    player_hand = Hand()
+    player_hand.add_card(deck.deal())
+    player_hand.add_card(deck.deal())
+    
+    dealer_hand = Hand()
+    dealer_hand.add_card(deck.deal())
+    dealer_hand.add_card(deck.deal())
+            
+    # Player's chips
+    player_chips = Chips()      
+    
+    # Taking bet
+    take_bet(player_chips)
+    
+    # Show cards
+    show_some(player_hand,dealer_hand)
+    
+    while playing:  
+        
+        # Ask Player hit or stand
+        hit_or_stand(deck,player_hand) 
+        
+        # Show cards 
+        show_some(player_hand,dealer_hand)  
+        
+        # If player's hand exceeds 21, player busts
+        if player_hand.value > 21:
+            player_busts(player_hand,dealer_hand,player_chips)
+            break      
